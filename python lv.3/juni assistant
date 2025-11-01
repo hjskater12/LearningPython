@@ -1,0 +1,46 @@
+import datetime
+import pytz
+import random
+
+def get_time():
+  time = datetime.datetime.now(pytz.timezone("US/Pacific"))
+  return f"{time.hour}:{time.minute}:{time.second}"
+
+def get_date():
+  time = datetime.datetime.now(pytz.timezone("US/Pacific"))
+  return f"{time.year},{time.month},{time.day}"
+
+def fun_fact():
+  funfacts = ["Did you know? Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old!", "Australia is wider than the moon", "the denver airport is biger than san fransisco", "90 percent of the world’s population lives in the Northern Hemisphere.", "A silverback gorilla can lift over 1,763 pounds and edie hall can lift 1,102."]
+  funfact = random.randint(0,len(funfacts)-1) 
+  return funfacts[funfact]
+  
+  
+  "Did you know? Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old!"
+
+def tell_joke():
+  return "Why don't skeletons fight each other? They don't have the guts!"
+
+def remember_name():
+  return input("What is your name? ")
+
+name = remember_name()
+while True:
+  options = input("1) What is the time\n2) What is the date\n3) What is my name\n4) Remember my name\n5) Fun fact\n6) Tell me a joke\n7) Quit\n: ")
+  
+  if options == "1":
+      print(get_time())
+  elif options == "2":
+      print(get_date())
+  elif options == "3":
+    print(f"Your name is {name}.")
+  elif options == "4":
+      name = remember_name()
+  elif options == "5":
+      print(fun_fact())
+  elif options == "6":
+      print(tell_joke())
+  elif options == "7":
+      break
+  else:
+      print("Invalid option, please choose a valid option.")

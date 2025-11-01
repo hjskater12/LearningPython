@@ -1,0 +1,21 @@
+word = input("give me a word: ")
+aeiou = ["a","e","i","o","u",]
+vowel = 0
+wordlen = 0
+firlas = 0
+
+for i in word:
+  if i in aeiou:
+    vowel += 1
+
+if len(word) % 2 == 0:
+  wordlen += 1
+  
+if word[0] != word[len(word)-1]:
+  firlas += 1
+  
+if vowel >= 2 and wordlen == 1 and firlas == 1:
+  print("Your word is valid")
+
+else:
+  print("Your word is invalid")
