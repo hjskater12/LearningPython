@@ -1,0 +1,20 @@
+def sumprint(n):
+  if len(n) == 1:
+    print(n[0])
+    
+  else:
+    sumprint(n[:-1])
+    print(sum(n))
+  
+sumprint([2,5,6,3,9])
+
+
+def asdf(w):
+  if len(w) == 1:
+    print(w[0])
+    
+  else:
+    print(sum(w))
+    asdf(w[:-1])
+  
+asdf([2,5,6,3,9])

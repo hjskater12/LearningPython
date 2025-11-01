@@ -1,0 +1,29 @@
+# What will be printed if we call strangeFunction(4)?
+def strangeFunction(n):
+  print(n)
+  if n > 2:
+    strangeFunction(n-1)
+    strangeFunction(n-2)
+
+print(strangeFunction(4))
+# Once you have an answer, uncomment the next line to test if it is correct!
+# strangeFunction(4)
+
+def bowling(rows):
+  if rows == 1:
+    return rows
+    
+  return bowling(rows-1)+rows
+  
+print(bowling(3))
+
+def lucas(num1):
+  if num1 == 1:
+    return 2
+  
+  if num1 == 2:
+    return 1
+  
+  return lucas(num1-1) + lucas(num1-2)
+
+print(lucas(7))

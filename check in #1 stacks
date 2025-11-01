@@ -1,0 +1,20 @@
+import random
+nums = [1,2,3,4,5]
+nums.append(random.randint(1,100))
+nums.pop()
+print(nums)
+
+def makeword(word):
+  stack = []
+  for i in word:
+    if len(stack) != 0:
+      if i == "#":
+        stack.pop()
+    
+    if i != "#":
+      stack.append(i)
+      
+  return "".join(stack)
+  
+print(makeword("t###"))
+  

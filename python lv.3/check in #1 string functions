@@ -1,0 +1,8 @@
+word = input("give me a string now: ")
+
+print(word[1:-1])
+
+word2 = input("give me a sentence with at least 2 words: ")
+print(word2.split()[1])
+
+
