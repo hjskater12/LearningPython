@@ -1,0 +1,178 @@
+#import librarie
+import random
+import time
+
+player1 = input("(player1) what is your name: ")
+print("\033c")
+player2 = input("(player2) (you pay small blind) what is your name: ")
+print("\033c")
+player3 = input("(player3) (you pay big blind) what is your name: ")
+print("\033c")
+player4 = input("(player4) (you go first affter big and small blind) what is your name: ")
+print("\033c")
+
+players = {1:1000, 2:950, 3:900, 4:1000}
+face = random.randint(1,4)
+
+#get face
+def faces():
+  tface = ""
+  if face == 1:
+    tface = "jack"
+  elif face == 2:
+    tface = "queen"
+  elif face == 3:
+    tface = "king"
+  else:
+    tface = "ace"
+  return(tface)
+# Encode, decode, calculate hand, and deal card functions
+deck = []
+
+suit = ["heart","diamond","spade","clover"]
+#4x loop per suit
+for i in range(4):
+  #loop 13x per card
+  for j in range(1,14):
+    deck.append((j,suit[i]))
+    
+random.shuffle(deck)
+    
+def convert_card(card):
+  return(deck[card])
+
+def deal_cards():
+  # random card from deck and remove
+  card1 = convert_card(random.randint(0,len(deck)-1))
+  deck.remove(card1)
+  # same thing
+  card2 = convert_card(random.randint(0,len(deck)-1))
+  deck.remove(card2)
+  #return the cards
+  return([card1, card2])
+
+# Deal cards
+p1hand = deal_cards()
+p2hand = deal_cards()
+p3hand = deal_cards()
+p4hand = deal_cards()
+
+playerhands = [p1hand, p2hand, p3hand, p4hand]
+'''
+gameplay loop
+
+
+person to the right of payer who pays big blind gets option (call (match big blind), prefold, raise)first
+
+[check if folded
+player options:
+  fold (forfeit)
+  call (match previous bet)
+  raise (raise bet)
+
+stop when all but 1 player folds or everyone calls]
+
+lay down 3 cards if call but give pot if folds
+[] again
+lay down 1 card if call but give pot if folds
+[] again
+lay down 1 card if call but give pot if folds
+[] again
+'''
+
+def turn(num):
+  print(f"player{num} will be going look away")
+  time.sleep(3)
+  print(playerhands[num-1])
+  option = input("call, fold, or raise: ")
+  return option
+    
+wfolded = []
+wcalled = []
+bet = {1:0, 2:50, 3:100, 4:0}
+
+number = 1 
+highbet = 100
+called = 0
+
+def gameplayloop():
+  global wfolded, wcalled, bet, number, highbet, called, ammount, deck, player1, player2, player3, player4, face, suit, playerhands
+  while True:
+    if len(wfolded) + len(wcalled) == 4:
+      break
+    
+    if len(wfolded) == 3:
+      break
+    
+    if number in wfolded:
+      number += 1
+      if number == 5:
+        number = 1
+      continue
+    option = turn(number)
+    if option == "fold":
+      wfolded.append(number)
+     
+    ammount = 100
+    if option == "raise":
+      amount = int(input("how much do you want to raise by? (if it is second time, raise >= 5)"))
+      while amount < 5:
+        amount = int(input("how much do you want to raise by? (if it is second time, raise >= 5)"))
+      bet[number] += amount
+      players[number] -= highbet - bet[number]
+        
+      highbet += amount
+    
+    if option == "call":
+      bet[number] = highbet
+      players[number] -= highbet - bet[number]
+      wcalled.append(number)
+      
+    number += 1
+    if number == 5:
+      number = 1
+community_cards = []
+for i in range(5):
+  card = convert_card(random.randint(0,len(deck)-1))
+  deck.remove(card)
+  community_cards.append(card)   
+
+wcalled = []
+
+gameplayloop()
+
+'''
+print("Flop:")
+print(community_cards[:3])
+time.sleep(3)
+
+wcalled = []
+
+gameplayloop()
+
+print("Turn:")
+print(community_cards[3])
+time.sleep(3)
+
+wcalled = []
+
+gameplayloop()
+
+print("River:")
+print(community_cards[4])
+time.sleep(3)
+'''
+
+p1finalhand = p1hand + community_cards
+p2finalhand = p2hand + community_cards
+p3finalhand = p3hand + community_cards
+p4finalhand = p4hand + community_cards
+
+royalflush = []
+for i in p1finalhand:
+  if i[0] == "ace" or i[0] == "king" or i[0] == "queen, " or i[0] == "jack" or i[0] == "10":
+    royalfluxh.append(i[0])
+    
+if len(royalflush) == 4:
+  for i in p1finalhand:
+    if i[0]
