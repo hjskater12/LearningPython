@@ -1,0 +1,92 @@
+# Create a list of the numbers 1 through 20 (without hard-coding the list)
+numbers = []
+for i in range(1,21):
+  numbers.append(i)
+  
+print(numbers)
+# Create a list of the first 20 even numbers (without hard-coding the list)
+numbers = []
+for i in range(0,21,2):
+  numbers.append(i)
+  
+print(numbers)
+
+# Create a list of the first 10 perfect squares (without hard-coding the list)
+perfsquare = []
+
+for i in range(11):
+  perfsquare.append(i*i)
+
+print(perfsquare)
+
+# Write a function that takes in two lists and returns the sum of both lists
+def twolist(list1,list2):
+  answer = 0
+  for i in list1:
+    answer += i
+  for i in list2:
+    answer += i
+  return answer
+print(twolist([1,2,3],[12345]))
+# Write a function that takes in a list and returns the minimum value in that list
+def findmin(numbers):
+    minvalue = numbers[0]
+    for i in numbers:
+        if i < minvalue:
+            minvalue = i
+    return minvalue
+  
+numbers = [1, 2, 3, 4, 5, 9]
+print(findmin(numbers))
+
+
+# Write a function that takes in a list and returns the maximum value in that list
+def findmax(numbers):
+    minvalue = numbers[0]
+    for i in numbers:
+        if i > minvalue:
+            minvalue = i
+    return minvalue
+  
+numbers = [1, 2, 3, 4, 5, 9]
+print(findmax(numbers))
+
+# Write a function that takes in a list of lists, and returns the sum of all those lists
+list1 = [[1234],[12345],[1231456]]
+
+
+def twolist(list1):
+  answer = 0
+  for i in list1:
+    for j in i:
+      answer +=j
+    
+  return answer
+  
+print(twolist(list1))
+
+# Write a function that takes in a list of lists, and returns a new list made from “flattening” the lists (putting every element from each list into a single list)
+list1 = [[1234],[12345],[1231456]]
+
+def twolist(list1):
+  answer = []
+  for i in list1:
+    for j in i:
+      answer.append(j)
+    
+  return answer
+  
+print(twolist(list1))
+
+# Write a function that takes in a list of lists that returns a new list of all the individual maxes from each list. Can you find a way to use the function that you already made that returns the maximum of a list?
+  
+list1 = [[1234,1234568987654],[12345,100000],[1231456,-3123412341234]]
+
+def twolist(list1):
+  answer = []
+  for i in list1:
+      answer.append(findmax(i))
+    
+  return answer
+  
+print(twolist(list1))
