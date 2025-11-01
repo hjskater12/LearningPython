@@ -1,0 +1,140 @@
+# (1) Write a function that takes in a list of numbers and returns a list with every number doubled.
+def double(lisst):
+  lisst2 = []
+  for i in lisst:
+    lisst2.append(i * 2)
+  return lisst2
+
+print(double([1,2,3,4,5,6,7,8,9,10]))
+# (2) Write a function that takes in a list of words and returns a list of only the words that start with the letter 'a.'
+def awords(lisst):
+  lisst2 = []
+  for i in lisst:
+    if i[0] == "a" or i[0] == "A":
+      lisst2.append(i)
+  return lisst2
+
+print(awords(["apple","amazon","asdadf","asdfasg,ghjkjhg","hn nghbnbhhnh,rjtujytd","aafdtyhyd,yht"]))
+
+# (3) Write a function that takes in a list of numbers and returns the number of even numbers in the list.
+def evennumonly(lisst):
+  even = []
+  for i in lisst:
+    if i % 2 == 0:
+      even.append(i)
+      
+  return even
+
+print(evennumonly([1,2,3,4,5,6,7,8,9,10]))
+      
+# (4) Write a function that takes in a list of numbers and returns the sum of the list.
+def sum_list(numbers):
+    total = 0
+    for i in numbers:
+        total += i
+    return total
+
+print(sum_list([1, 2, 3, 4]))
+# (5) Write a function that takes in a list of distinct numbers and returns the index of the largest number in the list.
+numbers = [1,11,2,5,6,20]
+
+def largestnumberindex(numbers):
+  greatest = numbers[0]
+  index = 0
+  for g in range(len(numbers)):
+    if numbers[g] > greatest:
+      greatest = numbers[g]
+      index = g
+  return(index)    
+  
+print(largestnumberindex(numbers))
+    
+  
+# (6) For a given integer N, print all perfect squares less than or equal to N.
+n = int(input("give me a number"))
+
+def allsquares(n):
+  perfsquare = []
+  i = 0
+  while True:
+    i += 1
+    if i*i > n:
+      break
+    else:
+      perfsquare.append(i*i)
+  print(perfsquare)
+
+allsquares(n)
+
+# (7) Write a function that takes in an integer N and returns the greatest integer x for which 2^x is less than or equal to N.
+def greatest_power_of_two(N):
+    if N < 1:
+        print("N must be a positive integer")
+    
+    x = 0
+    power = 1
+    
+    while power * 2 <= N:
+        power *= 2
+        x += 1
+    
+    return x
+
+print(greatest_power_of_two(20))
+
+# (8) Write a function that takes in an integer N and returns the sum of 1! + 2! + ... + N!.
+'''ex (3 = (3*2*1)+(2*1)+(1))'''
+
+# (9) Write a function that takes in a positive integer N and returns its largest divisor less than N.
+
+
+# (10) Write a function that takes in a list of integers (positive or negative) and returns the largest product that can be made with any two numbers from the list.
+def largproduct(nums):
+  largest = nums[0]*nums[1]
+  for i in range(len(nums)):
+    for j in range(len(nums)):
+      if i != j and nums[i]*nums[j] > largest:
+        largest = nums[i]*nums[j]
+  return largest
+
+print(largproduct([1,2,3,4,5,6,7,9]))
+# (11) Write a function that takes in a list of integers (positive or negative) and return True if any pair of the numbers in the list sum to 0, Otherwise, return False.
+def zero(numbers):
+  for i in range(len(numbers)):
+    for j in range(len(numbers)):
+      zero = numbers[i]+numbers[j]
+      if zero == 0:
+        return True
+        
+  return False
+
+print(zero([1,2,3,4,-3]))
+
+
+# (12) Write a function that takes in a list of integers and returns a list of the most commonly occurring integers in the list. For example, if the list is [3, 6, 2, 2, 6], the function should return [2,6].
+'''create variables based on new num'''
+# (13) Write a function that takes in a string and returns the string in reverse order. 
+'''rightlist = ["akjsdhla"]
+rightlist.reverse()
+print(rightlist)'''
+
+# (14) Write a function that takes in a string and returns the number of vowels in the string.
+def count_vowels(word):
+    vowels = ["a","e","i","o","u"]
+    count = 0
+    for i in word:
+        if i in vowels:
+            count += 1
+    return count
+    
+print(count_vowels(input("give me a word")))
+
+# (15) Write a function that takes in a list of numbers and returns the number of numbers that appear twice in the list.
+'''def count_twice_numbers(nums):
+
+
+print(count_twice_numbers([1, 2, 2, 3, 3, 4, 5, 5]))'''
+
+
+# (16) Write a function that takes in a list of distinct numbers and return the list with the smallest and largest numbers swapped.
+
