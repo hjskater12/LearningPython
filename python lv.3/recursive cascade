@@ -1,0 +1,11 @@
+def staircase(word):
+  if len(word) > 1:
+    staircase(word[:-1])
+  print(word)
+staircase("uskhtcrnwjkcmwklf.,jwmcuokrg,lkcermjghuegiwruekhewjetnu")
+
+def staircase(word):
+  print(word)
+  if len(word) > 1:
+    staircase(word[:-1])
+staircase("uskhtcrnwjkcmwklf.,jwmcuokrg,lkcermjghuegiwruekhewjetnu'")

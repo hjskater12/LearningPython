@@ -1,0 +1,36 @@
+# if the stack last item != current item false affter finish = true
+  
+def brackets(sequence):
+  key = {"(":")","[":"]","{":"}"}
+  stack = []
+  for ch in sequence:
+    if ch in key:
+      stack.append(ch)
+      
+    elif ch in key.values():
+      if len(stack) == 0:
+        return False
+      if ch != key[stack.pop()]:
+        return False
+  
+  if len(stack) == 0:
+    return True
+    
+  else:
+    return False
+      
+print(brackets("[(()({}[])]"))
+# if pair of 2() has closing and opening, get rid of, if not keep going until true (nothing) or false (something)
+
+def recbrackets(recsequence):
+  key = ["()","{}","[]"]
+  if len(recsequence) == 0:
+    return True
+  
+  for i in range(len(recsequence)-1):
+    if recsequence[i]+recsequence[i+1] in key:
+      return recbrackets(recsequence[:i]+recsequence[i+2:])
+    
+  return False
+
+print (recbrackets("[]"))
