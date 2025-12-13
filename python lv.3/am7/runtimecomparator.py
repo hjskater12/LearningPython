@@ -53,3 +53,14 @@ finish = time.time()
 print(f'linear search:{finish-start}')
 
 numbers.sort()
+start = time.time()
+for i in range(1000):
+  binSearchIter(numbers, searchnumbers[i])
+finish = time.time()
+print(f'binary search iterative:{finish-start}')
+
+start = time.time()
+for i in range(1000):
+  binSearchRecur(numbers, searchnumbers[i])
+finish = time.time()
+print(f'binary search recursive:{finish-start}')
